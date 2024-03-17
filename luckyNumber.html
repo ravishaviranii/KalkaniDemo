@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lucky Number Pattern</title>
+
+<script>
+
+function printPattern(luckyNumber) {
+
+
+
+    for (let i = 1; i <= luckyNumber; i++) {
+
+        let row = '';
+
+     
+
+        for (let j = 1; j <= luckyNumber - i; j++) {
+
+            row += '&nbsp;&nbsp;&nbsp;';
+
+        }
+
+  
+
+        for (let j = 1; j <= i * 2 - 1; j += 2) {
+
+            row += j + ' ';
+
+        }
+
+
+
+        for (let j = 65; j <= 65 + i - 2; j++) {
+
+            row += String.fromCharCode(j) + ' ';
+
+        }
+
+        document.getElementById('pattern').innerHTML += row + '<br>';
+
+    }
+
+
+    for (let i = luckyNumber - 1; i >= 1; i--) {
+
+        let row = '';
+
+
+        for (let j = 1; j <= luckyNumber - i; j++) {
+
+            row += '&nbsp;&nbsp;&nbsp;';
+
+        }
+
+        for (let j = 1; j <= i * 2 - 1; j += 2) {
+
+            row += j + ' ';
+
+        }
+
+
+        for (let j = 65; j <= 65 + i - 2; j++) {
+
+            row += String.fromCharCode(j) + ' ';
+
+        }
+
+        document.getElementById('pattern').innerHTML += row + '<br>';
+
+    }
+
+}
+
+
+
+function generatePattern() {
+
+    let luckyNumber = parseInt(document.getElementById('luckyNumber').value);
+
+    document.getElementById('pattern').innerHTML = '';
+
+    printPattern(luckyNumber);
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2>Lucky Number Pattern</h2>
+
+<label for="luckyNumber">Enter your lucky number:</label>
+
+<input type="number" id="luckyNumber">
+
+<button onclick="generatePattern()">Generate Pattern</button>
+
+<br><br>
+
+<div id="pattern"></div>
+
+</body>
+
+</html>

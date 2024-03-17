@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fibonacci Series</title>
+
+<script>
+
+function fibonacciSeries(limit) {
+
+    let fibSeries = [0, 1];
+
+    let nextFib = 1;
+
+
+
+    while (nextFib <= limit) {
+
+        fibSeries.push(nextFib);
+
+        nextFib = fibSeries[fibSeries.length - 1] + fibSeries[fibSeries.length - 2];
+
+    }
+
+    return fibSeries;
+
+}
+
+
+
+function printFibonacciSeries() {
+
+    let userInput = parseInt(document.getElementById('userInput').value);
+
+    let fibSeries = fibonacciSeries(userInput);
+
+    document.getElementById('output').innerText = fibSeries.join(', ');
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2>Fibonacci Series</h2>
+
+<label for="userInput">Enter a number:</label>
+
+<input type="number" id="userInput">
+
+<button onclick="printFibonacciSeries()">Generate Series</button>
+
+<br><br>
+
+<div id="output"></div>
+
+</body>
+
+</html>
+
